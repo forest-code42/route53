@@ -3,7 +3,7 @@ package route53
 import (
 	"strconv"
 
-	"github.com/libdns/route53"
+	route53 "github.com/forest-code42/libdns-route53"
 
 	"github.com/caddyserver/caddy/v2"
 	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
@@ -39,15 +39,14 @@ func (p *Provider) Provision(ctx caddy.Context) error {
 
 // UnmarshalCaddyfile sets up the DNS provider from Caddyfile tokens. Syntax:
 //
-// route53 {
-//     max_retries <int>
-//     aws_profile <string>
-//     access_key_id <string>
-//     secret_access_key <string>
-//	   token <string>
-//     region <string>
-// }
-//
+//	route53 {
+//	    max_retries <int>
+//	    aws_profile <string>
+//	    access_key_id <string>
+//	    secret_access_key <string>
+//		   token <string>
+//	    region <string>
+//	}
 func (p *Provider) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 	for d.Next() {
 		if d.NextArg() {
